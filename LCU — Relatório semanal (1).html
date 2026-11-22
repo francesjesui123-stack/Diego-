@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LCU — Relatório semanal</title>
+<style>
+:root{--bg:#f5f6f8;--sf:#fff;--tx:#12141a;--mu:#6b7280;--bd:#e5e7eb;--ac:#4338ca;--acs:#eef2ff;--ok:#059669;--wa:#d97706;--er:#dc2626;--pa:#f59e0b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0d12;--sf:#14171f;--tx:#e8eaf0;--mu:#8b93a4;--bd:#232836;--ac:#818cf8;--acs:#1c2040;--ok:#34d399;--wa:#fbbf24;--er:#f87171;--pa:#fbbf24;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0d12;--sf:#14171f;--tx:#e8eaf0;--mu:#8b93a4;--bd:#232836;--ac:#818cf8;--acs:#1c2040;--ok:#34d399;--wa:#fbbf24;--er:#f87171;--pa:#fbbf24;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums}
+main{max-width:720px;margin:0 auto;padding:12px 14px 96px}
+header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+header h1{font-size:20px;margin:0;letter-spacing:-.3px;flex:1}
+header h1 small{display:block;font-size:12px;font-weight:400;color:var(--mu);letter-spacing:0}
+.ib{width:38px;height:38px;border-radius:10px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);font-size:16px}
+.wk{display:flex;align-items:center;background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:6px;margin-bottom:12px}
+.wk>div{flex:1;text-align:center;line-height:1.25}.wk b{display:block}.wk small{color:var(--mu)}
+.wk button{width:40px;height:40px;border:0;border-radius:10px;background:var(--bg);color:var(--tx);font-size:20px}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px;border:1px solid currentColor;margin-top:2px}
+.ok{color:var(--ok)}.wa{color:var(--wa)}.er{color:var(--er)}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+.card h2{font-size:13px;margin:0 0 8px;color:var(--mu);text-transform:uppercase;letter-spacing:.6px}
+.kg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.kpi{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:12px}
+.kpi small{color:var(--mu);font-size:12px}.kpi b{display:block;font-size:26px;letter-spacing:-.5px;line-height:1.2}
+.bd{font-size:12px;font-weight:600;color:var(--mu)}.bd.up{color:var(--ok)}.bd.dn{color:var(--wa)}
+label{display:block;font-size:12px;color:var(--mu);margin:10px 0 4px;font-weight:600}
+input,textarea{width:100%;padding:11px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--ac);outline-offset:-1px}
+input[type=range]{padding:0;accent-color:var(--ac)}
+textarea{min-height:68px;resize:vertical}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.btn{width:100%;margin-top:10px;padding:12px;border:0;border-radius:10px;background:var(--ac);color:var(--sf);font:inherit;font-weight:600}
+.btn.alt{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+.btn.del{background:transparent;color:var(--er);border:1px solid var(--bd)}
+.link{background:none;border:0;color:var(--ac);font:inherit;font-size:13px;padding:6px 0;font-weight:600}
+.bar{display:flex;height:8px;border-radius:5px;overflow:hidden;background:var(--bd);margin:8px 0 4px}
+.bar i{display:block;height:100%}.p{background:var(--pa)}.a{background:var(--ac)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 13px;border:1px solid var(--bd);border-radius:20px;background:var(--bg);color:var(--tx);font:inherit;font-size:13px}
+.chip.on{background:var(--ac);border-color:var(--ac);color:var(--sf)}.chip.ed{border-style:dashed}
+.tip{font-size:13px;color:var(--mu);background:var(--bg);border-radius:10px;padding:10px;margin-top:10px}
+.ins{margin:0;padding:0;list-style:none}.ins li{padding:8px 0;border-top:1px solid var(--bd);font-size:14px}.ins li:first-child{border:0}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:7px 4px;text-align:right;border-top:1px solid var(--bd)}th{color:var(--mu);font-weight:600;border:0}th:first-child,td:first-child{text-align:left}
+.scr{overflow-x:auto}
+svg{width:100%;height:auto;display:block}
+.ln{fill:none;stroke:var(--ac);stroke-width:2.5}.ar{fill:var(--ac);opacity:.12}.dt{fill:var(--ac)}.gl{stroke:var(--bd)}.go{stroke:var(--ok);stroke-dasharray:4 3}.ax{font-size:9px;fill:var(--mu)}.vl{font-size:9px;fill:var(--tx);text-anchor:middle}
+pre{white-space:pre-wrap;word-break:break-word;font:13px/1.5 ui-monospace,Menlo,monospace;margin:0;background:var(--bg);padding:12px;border-radius:10px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--sf);border-top:1px solid var(--bd);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;border:0;background:none;color:var(--mu);font:inherit;font-size:11px;font-weight:600;padding:4px}
+nav button span{display:block;font-size:18px;line-height:1.2}nav button.on{color:var(--ac)}
+.hide{display:none}small{color:var(--mu)}.empty{text-align:center}
+</style>
+</head>
+<body>
+<main>
+<header><h1>LCU<small>Relatório semanal do Lab</small></h1><button class="ib" id="gear" aria-label="Ajustes">⚙</button><button class="ib" id="th" aria-label="Alternar tema">◐</button></header>
+<div class="wk"><button id="wp" aria-label="Semana anterior">‹</button><div><b id="wl"></b><small id="wd"></small><br><span id="pill" class="pill"></span></div><button id="wn" aria-label="Próxima semana">›</button></div>
+
+<section id="dash"></section>
+
+<section id="lcu" class="hide">
+<div id="plan"></div>
+<div class="card"><h2>Horas da semana</h2>
+<div class="row"><div><label for="ip">Passivo (min)</label><input id="ip" inputmode="text" autocomplete="off" placeholder="ex.: 45"></div>
+<div><label for="ia" id="lia">Ativo (min)</label><input id="ia" inputmode="text" autocomplete="off" placeholder="ex.: 30"></div></div>
+<div class="bar"><i class="p" id="bp"></i><i class="a" id="ba"></i></div>
+<small id="ratio"></small> <small id="warn" class="wa"></small>
+<div class="tip">Digite em minutos (30) ou como 1h10. Música não entra no passivo (baixo aproveitamento linguístico). Atividades ao vivo do Lab contam como ativo.</div></div>
+<div class="card"><h2>Ponto de contato</h2>
+<label for="comp">Compreensão: <b id="compv"></b></label><input type="range" id="comp" min="0" max="100" step="5" value="50">
+<label>Níveis de legenda usados</label><div class="chips" id="chips"></div>
+<div class="row hide" id="ledit" style="margin-top:8px"><input id="lnew" placeholder="Novo nível" maxlength="40"><button class="btn alt" id="ladd" style="margin:0;flex:0 0 100px">Adicionar</button></div>
+<button class="link" id="ltog"></button></div>
+<div class="card"><h2>Perguntas de clareza</h2>
+<label for="q1">O que funcionou esta semana?</label><textarea id="q1"></textarea>
+<label for="q2">O que não funcionou?</label><textarea id="q2"></textarea>
+<label for="q3">O que vou ajustar na próxima semana?</label><textarea id="q3"></textarea>
+<label for="q4">O que levar para o plantão?</label><textarea id="q4"></textarea>
+<div class="bar"><i class="a" id="pg"></i></div><small id="pgt"></small>
+<button class="btn" id="lsave">Salvar LCU</button>
+<button class="btn del hide" id="ldel">Excluir este LCU</button>
+<div class="tip">Rascunho salvo automaticamente. LCU feito = plantão direto ao diagnóstico.</div></div>
+</section>
+
+<section id="evo" class="hide"></section>
+<section id="plan2" class="hide"></section>
+
+<section id="cfg" class="hide">
+<div class="card"><h2>Parâmetros</h2>
+<label for="cm">Limite de ativo (minutos)</label><input id="cm" inputmode="numeric">
+<label for="cg">Meta de compreensão (%)</label><input id="cg" inputmode="numeric"></div>
+<div class="card"><h2>Dados</h2><small>Backup em JSON para guardar ou levar a outro aparelho; CSV para planilhas.</small>
+<textarea id="bk" placeholder="Cole o backup aqui para importar" style="margin-top:8px"></textarea>
+<div class="row"><button class="btn alt" id="bc">Copiar backup</button><button class="btn alt" id="bv">Copiar CSV</button></div>
+<button class="btn" id="bi">Importar backup</button><small id="bm"></small></div>
+</section>
+</main>
+<nav>
+<button data-go="dash" class="on"><span>◧</span>Painel</button>
+<button data-go="lcu"><span>✎</span>LCU</button>
+<button data-go="evo"><span>↗</span>Evolução</button>
+<button data-go="plan2"><span>☰</span>Plantão</button>
+</nav>
+<script>
+var DEF=["Sem legenda","Legenda no idioma-alvo","Legenda na língua nativa"];
+var S={lcus:{},drafts:{},levels:null,cfg:{maxA:70,goalC:80}};
+try{var o=JSON.parse(localStorage.getItem("lcu-only-data")||"{}");S.lcus=o.lcus||{};S.drafts=o.drafts||{};S.levels=o.levels||null;if(o.cfg)S.cfg=Object.assign(S.cfg,o.cfg)}catch(e){}
+try{var th=localStorage.getItem("lcu-theme");if(th)document.documentElement.setAttribute("data-theme",th)}catch(e){}
+function save(){try{localStorage.setItem("lcu-only-data",JSON.stringify(S))}catch(e){}}
+function $(i){return document.getElementById(i)}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+function monday(d){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
+function add(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function fd(d){return d.toLocaleDateString("pt-BR",{day:"2-digit",month:"short"}).replace(".","")}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function wn(d){var t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())),n=t.getUTCDay()||7;t.setUTCDate(t.getUTCDate()+4-n);var y=new Date(Date.UTC(t.getUTCFullYear(),0,1));return Math.ceil(((t-y)/864e5+1)/7)}
+function mm(h){return Math.round(h*60)}
+function fm(h){var m=mm(h),x=Math.floor(m/60),r=m%60;return x?x+"h"+(r?String(r).padStart(2,"0"):""):m+"min"}
+function pct(l){var s=l.p+l.a;return s?Math.round(l.a/s*100):0}
+function pm(s){s=String(s).trim().toLowerCase().replace(",",".");var m;
+if(m=s.match(/^(\d+)\s*[h:]\s*(\d{1,2})?\s*(?:m|min)?$/))return(+m[1])*60+(+m[2]||0);
+if(m=s.match(/^(\d+(?:\.\d+)?)\s*(?:h|hr|hora|horas)$/))return Math.round(parseFloat(m[1])*60);
+if(m=s.match(/^(\d+(?:\.\d+)?)\s*(?:m|min|minutos?)?$/))return Math.round(parseFloat(m[1]));return 0}
+function band(v){return v<40?"ainda difícil":v<70?"acompanhando":"confortável"}
+function sg(n){return(n>0?"+":"")+n}
+function LV(){return S.levels||DEF}
+function pk(k){return iso(add(parse(k),-7))}
+function bd(v,u){return '<span class="bd '+(v>0?"up":v<0?"dn":"")+'">'+(v>0?"▲ ":v<0?"▼ ":"• ")+Math.abs(v)+u+"</span>"}
+function streak(){var w=monday(new Date());if(!S.lcus[iso(w)])w=add(w,-7);var n=0;while(S.lcus[iso(w)]){n++;w=add(w,-7)}return n}
+function prog(l){return Math.round(((l.p+l.a>0?1:0)+(l.levels.length?1:0)+l.q.filter(function(x){return x.trim()}).length)/6*100)}
+
+var today=new Date(),lw=monday(today),tab="dash",levels=[],adj="",ed=false,met="pa",rng=8,flt="";
+
+$("th").onclick=function(){var d=document.documentElement,c=d.getAttribute("data-theme"),dk=c?c==="dark":matchMedia("(prefers-color-scheme:dark)").matches,nx=dk?"light":"dark";d.setAttribute("data-theme",nx);try{localStorage.setItem("lcu-theme",nx)}catch(e){}};
+$("gear").onclick=function(){go("cfg")};
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go],[data-open]");if(!b)return;
+if(b.dataset.open){lw=parse(b.dataset.open);go("lcu")}else go(b.dataset.go)});
+function go(t){tab=t;["dash","lcu","evo","plan2","cfg"].forEach(function(s){$(s).classList.toggle("hide",s!==t)});
+document.querySelectorAll("nav button").forEach(function(b){b.classList.toggle("on",b.dataset.go===t)});R();window.scrollTo(0,0)}
+$("wp").onclick=function(){lw=add(lw,-7);R()};$("wn").onclick=function(){lw=add(lw,7);R()};
+
+function hd(){var k=iso(lw);$("wl").textContent="Semana "+wn(lw);$("wd").textContent=fd(lw)+" – "+fd(add(lw,6));
+var s=S.drafts[k]?["Rascunho","wa"]:S.lcus[k]?["Salvo","ok"]:["Pendente","er"];$("pill").textContent=s[0];$("pill").className="pill "+s[1]}
+function R(){hd();({dash:rD,lcu:rL,evo:rE,plan2:rP,cfg:rC})[tab]()}
+
+function kp(l,v,s,x){return '<div class="kpi"><small>'+l+"</small><b>"+v+"</b><div>"+(s||"&nbsp;")+"</div>"+(x||"")+"</div>"}
+function ins(k){var o=[],l=S.lcus[k],pv=S.lcus[pk(k)],ks=Object.keys(S.lcus).sort(),g=S.cfg.goalC;
+if(l&&pv){var d=mm(l.a)-mm(pv.a);o.push(d>0?"Ativo subiu "+d+" min em relação à semana anterior.":d<0?"Ativo caiu "+-d+" min em relação à semana anterior.":"Ativo igual ao da semana anterior.")}
+if(l)o.push(l.comp>=g?"Compreensão dentro da meta ("+l.comp+"% de "+g+"%).":"Compreensão "+(g-l.comp)+" pts abaixo da meta de "+g+"%.");
+if(ks.length>=4){var s=ks.slice().sort(function(a,b){return S.lcus[a].a-S.lcus[b].a}),h=s.length>>1,av=function(a){return Math.round(a.reduce(function(t,x){return t+S.lcus[x].comp},0)/a.length)};
+o.push("Semanas com mais ativo: compreensão média de "+av(s.slice(h))+"%, contra "+av(s.slice(0,h))+"% nas com menos ativo.")}
+var ad=ks.filter(function(x){return S.lcus[x].adj}),sm=ad.filter(function(x){return S.lcus[x].adj==="sim"}).length;
+if(ad.length)o.push("Ajuste planejado cumprido em "+sm+" de "+ad.length+" semana(s) avaliadas.");return o}
+
+function rD(){var k=iso(lw),l=S.lcus[k],e=l||S.drafts[k],pv=S.lcus[pk(k)],g=S.cfg.goalC,n=streak(),h="",d=today.getDay(),cw=S.lcus[iso(monday(today))];
+if(k===iso(monday(today))){var m=cw?"LCU desta semana feito. Bom trabalho.":d===0?"Hoje é domingo: feche a semana com seu LCU.":"";if(m)h+='<div class="card '+(cw?"ok":"wa")+'" style="font-weight:600">'+m+"</div>"}
+if(!e)h+='<div class="card empty"><b>LCU desta semana ainda não foi preenchido</b><p><small>Registre horas, compreensão, legendas e as perguntas de clareza.</small></p><button class="btn" data-go="lcu">Fazer o LCU</button></div>';
+else{h+='<div class="kg">'+kp("Ativo",fm(e.a),pv?bd(mm(e.a)-mm(pv.a)," min"):"")+kp("% ativo",pct(e)+"%",pv?bd(pct(e)-pct(pv)," pts"):"")+
+kp("Compreensão",e.comp+"%",pv?bd(e.comp-pv.comp," pts"):"",'<div class="bar"><i class="a" style="width:'+e.comp+'%"></i></div><small>Meta '+g+"%</small>")+kp("Sequência",n,"semana"+(n===1?"":"s")+" seguidas")+"</div>";
+var pr=prog(e);h+='<div class="card"><h2>Preenchimento do LCU · '+pr+'%</h2><div class="bar"><i class="a" style="width:'+pr+'%"></i></div>'+(l?"":'<button class="link" data-go="lcu">Continuar e salvar</button>')+"</div>"}
+var I=ins(k);if(I.length)h+='<div class="card"><h2>Diagnóstico automático</h2><ul class="ins">'+I.map(function(x){return"<li>"+x+"</li>"}).join("")+"</ul></div>";
+$("dash").innerHTML=h}
+
+function rL(){var k=iso(lw),l=S.drafts[k]||S.lcus[k]||{p:0,a:0,comp:50,levels:[],q:["","","",""],adj:""},pv=S.lcus[pk(k)];
+$("ip").value=mm(l.p)||"";$("ia").value=mm(l.a)||"";$("comp").value=l.comp;levels=l.levels.slice();adj=l.adj||"";
+for(var i=0;i<4;i++)$("q"+(i+1)).value=l.q[i]||"";
+$("lia").textContent="Ativo (min · máx. "+fm(S.cfg.maxA/60)+")";
+var h="";if(pv&&pv.q[2])h='<div class="card"><h2>Ajuste planejado na semana passada</h2><div>“'+esc(pv.q[2])+'”</div><label>Você cumpriu?</label><div class="chips">'+[["sim","Sim"],["parcial","Em parte"],["nao","Não"]].map(function(x){return'<button class="chip'+(adj===x[0]?" on":"")+'" data-adj="'+x[0]+'">'+x[1]+"</button>"}).join("")+"</div></div>";
+$("plan").innerHTML=h;renderChips();live()}
+$("plan").onclick=function(e){var b=e.target.closest("[data-adj]");if(b){adj=adj===b.dataset.adj?"":b.dataset.adj;draft();rL()}};
+function cur(){var p=pm($("ip").value)/60,a=Math.min(pm($("ia").value),S.cfg.maxA)/60;return{p:p,a:a,comp:+$("comp").value,levels:levels.slice(),q:[1,2,3,4].map(function(i){return $("q"+i).value}),adj:adj}}
+function live(){var c=cur(),s=c.p+c.a,k=iso(lw);
+$("bp").style.width=s?c.p/s*100+"%":"0";$("ba").style.width=s?c.a/s*100+"%":"0";
+$("ratio").textContent=s?pct(c)+"% ativo · "+fm(s)+" no total":"";
+$("compv").textContent=c.comp+"% ("+band(c.comp)+")";
+var p=prog(c);$("pg").style.width=p+"%";$("pgt").textContent="Preenchimento: "+p+"%";
+$("ldel").classList.toggle("hide",!S.lcus[k]);hd()}
+function draft(){S.drafts[iso(lw)]=cur();save();live()}
+["ip","ia","comp","q1","q2","q3","q4"].forEach(function(i){$(i).addEventListener("input",draft)});
+$("ia").addEventListener("input",function(){$("warn").textContent=pm($("ia").value)>S.cfg.maxA?"Máximo de "+fm(S.cfg.maxA/60)+": valor limitado.":""});
+$("ia").addEventListener("change",function(){if(pm($("ia").value)>S.cfg.maxA){$("ia").value=S.cfg.maxA;draft()}});
+function renderChips(){var el=$("chips"),all=LV().concat(levels.filter(function(x){return LV().indexOf(x)<0}));el.innerHTML="";
+all.forEach(function(n){var b=document.createElement("button");b.type="button";b.className="chip"+(levels.indexOf(n)>-1?" on":"")+(ed?" ed":"");b.textContent=n+(ed?" ×":"");
+b.onclick=function(){if(ed){S.levels=LV().filter(function(x){return x!==n});levels=levels.filter(function(x){return x!==n})}else{var i=levels.indexOf(n);if(i>-1)levels.splice(i,1);else levels.push(n)}draft();renderChips()};el.appendChild(b)});
+$("ledit").classList.toggle("hide",!ed);$("ltog").textContent=ed?"Concluir edição":"Editar níveis de legenda"}
+$("ltog").onclick=function(){ed=!ed;renderChips()};
+$("ladd").onclick=function(){var v=$("lnew").value.trim();if(v&&LV().indexOf(v)<0){S.levels=LV().concat([v]);save()}$("lnew").value="";renderChips()};
+function btn(id,t,x,ms){$(id).textContent=x;setTimeout(function(){$(id).textContent=t},ms||1400)}
+$("lsave").onclick=function(){var k=iso(lw);S.lcus[k]=cur();delete S.drafts[k];save();hd();live();btn("lsave","Salvar LCU","Salvo ✓")};
+var armed=false;
+$("ldel").onclick=function(){if(!armed){armed=true;btn("ldel","Excluir este LCU","Toque de novo para excluir",2500);setTimeout(function(){armed=false},2500);return}
+var k=iso(lw);delete S.lcus[k];delete S.drafts[k];save();armed=false;$("ldel").textContent="Excluir este LCU";rL();hd()};
+function copy(s,id,t){try{navigator.clipboard.writeText(s).then(function(){btn(id,t,"Copiado ✓")},function(){btn(id,t,"Não foi possível copiar")})}catch(e){btn(id,t,"Não foi possível copiar")}}
+
+function val(l,m){return m==="pa"?pct(l):m==="a"?mm(l.a):m==="p"?mm(l.p):l.comp}
+var MN={pa:"% ativo",a:"Ativo (min)",c:"Compreensão (%)",p:"Passivo (min)"};
+function chart(ks){var n=ks.length;if(n<2)return"<small>O gráfico aparece a partir do segundo LCU salvo.</small>";
+var v=ks.map(function(k){return val(S.lcus[k],met)}),pc=met==="pa"||met==="c",mx=pc?100:Math.max.apply(null,v.concat(met==="a"?[S.cfg.maxA]:[10]))*1.15;
+function X(i){return 28+282*i/(n-1)}function Y(x){return 15+95*(1-x/mx)}
+var pts=v.map(function(x,i){return X(i).toFixed(1)+","+Y(x).toFixed(1)}),s='<svg viewBox="0 0 320 135" role="img" aria-label="'+MN[met]+'">';
+[0,.5,1].forEach(function(f){s+='<line class="gl" x1="28" x2="310" y1="'+Y(mx*f)+'" y2="'+Y(mx*f)+'"/><text class="ax" x="0" y="'+(Y(mx*f)+3)+'">'+Math.round(mx*f)+"</text>"});
+if(met==="c")s+='<line class="go" x1="28" x2="310" y1="'+Y(S.cfg.goalC)+'" y2="'+Y(S.cfg.goalC)+'"/>';
+if(met==="a")s+='<line class="go" x1="28" x2="310" y1="'+Y(S.cfg.maxA)+'" y2="'+Y(S.cfg.maxA)+'"/>';
+s+='<polygon class="ar" points="28,'+Y(0)+" "+pts.join(" ")+" 310,"+Y(0)+'"/><polyline class="ln" points="'+pts.join(" ")+'"/>';
+v.forEach(function(x,i){s+='<circle class="dt" cx="'+X(i).toFixed(1)+'" cy="'+Y(x).toFixed(1)+'" r="3"/>'+(n<=10?'<text class="vl" x="'+X(i).toFixed(1)+'" y="'+(Y(x)-7).toFixed(1)+'">'+x+"</text>":"")});
+return s+'<text class="ax" x="28" y="130">'+fd(parse(ks[0]))+'</text><text class="ax" x="310" y="130" text-anchor="end">'+fd(parse(ks[n-1]))+"</text></svg>"+(met==="c"?"<small>Linha tracejada: meta de "+S.cfg.goalC+"%</small>":met==="a"?"<small>Linha tracejada: limite de "+fm(S.cfg.maxA/60)+"</small>":"")}
+
+function rE(){var all=Object.keys(S.lcus).sort(),ks=rng?all.slice(-rng):all,n=all.length,h="";
+var avg=n?Math.round(all.reduce(function(t,k){return t+pct(S.lcus[k])},0)/n):0,ac=n?Math.round(all.reduce(function(t,k){return t+S.lcus[k].comp},0)/n):0;
+h+='<div class="kg">'+kp("LCUs feitos",n)+kp("Sequência",streak(),"semanas")+kp("Média % ativo",avg+"%")+kp("Média compreensão",ac+"%")+"</div>";
+h+='<div class="card"><h2>Tendência</h2><div class="chips" style="margin-bottom:8px">'+Object.keys(MN).map(function(m){return'<button class="chip'+(met===m?" on":"")+'" data-m="'+m+'">'+MN[m]+"</button>"}).join("")+'</div><div class="chips" style="margin-bottom:8px">'+[[8,"8 sem."],[12,"12 sem."],[0,"Tudo"]].map(function(r){return'<button class="chip'+(rng===r[0]?" on":"")+'" data-r="'+r[0]+'">'+r[1]+"</button>"}).join("")+"</div>"+chart(ks)+"</div>";
+var cnt={};all.forEach(function(k){S.lcus[k].levels.forEach(function(x){cnt[x]=(cnt[x]||0)+1})});var cl=Object.keys(cnt).sort(function(a,b){return cnt[b]-cnt[a]});
+if(cl.length)h+='<div class="card"><h2>Uso de legendas (semanas)</h2>'+cl.map(function(x){return"<div><small>"+esc(x)+" · "+cnt[x]+'</small><div class="bar"><i class="a" style="width:'+cnt[x]/n*100+'%"></i></div></div>'}).join("")+"</div>";
+h+='<div class="card"><h2>Histórico</h2><input id="sf" placeholder="Buscar nas respostas…" value="'+esc(flt)+'"><div class="scr"><table><tr><th>Semana</th><th>Ativo</th><th>%A</th><th>Comp.</th></tr>';
+all.slice().reverse().filter(function(k){return!flt||S.lcus[k].q.join(" ").toLowerCase().indexOf(flt.toLowerCase())>-1}).forEach(function(k){var l=S.lcus[k];
+h+='<tr data-open="'+k+'" style="cursor:pointer"><td>'+wn(parse(k))+" · "+fd(parse(k))+"</td><td>"+fm(l.a)+"</td><td>"+pct(l)+"%</td><td>"+l.comp+"%</td></tr>"});
+h+="</table></div>"+(n?"<small>Toque numa linha para abrir e editar.</small>":"<small>Nenhum LCU salvo ainda.</small>")+"</div>";
+$("evo").innerHTML=h;var f=$("sf");if(flt){f.focus();f.setSelectionRange(flt.length,flt.length)}
+f.oninput=function(){flt=f.value;rE()}}
+$("evo").addEventListener("click",function(e){var b=e.target.closest("[data-m],[data-r]");if(!b)return;if(b.dataset.m)met=b.dataset.m;else rng=+b.dataset.r;rE()});
+
+function brief(k){var l=S.lcus[k]||S.drafts[k];if(!l)return"LCU ainda não preenchido para esta semana.";var ws=parse(k),pv=S.lcus[pk(k)],t=["LCU · semana "+wn(ws)+" ("+fd(ws)+" – "+fd(add(ws,6))+")","Passivo "+fm(l.p)+" · Ativo "+fm(l.a)+" ("+pct(l)+"% ativo)","Compreensão no ponto de contato: "+l.comp+"% ("+band(l.comp)+")","Legendas: "+(l.levels.join(", ")||"não informado")];
+if(pv)t.push("Vs semana anterior: ativo "+sg(mm(l.a)-mm(pv.a))+" min · compreensão "+sg(l.comp-pv.comp)+" pts");
+if(pv&&pv.q[2])t.push("Ajuste anterior: "+pv.q[2]+" → "+({sim:"cumprido",parcial:"em parte",nao:"não cumprido"}[l.adj]||"não avaliado"));
+t.push("Funcionou: "+(l.q[0]||"-"),"Não funcionou: "+(l.q[1]||"-"),"Ajustar: "+(l.q[2]||"-"),"Levar ao plantão: "+(l.q[3]||"-"));return t.join("\n")}
+function rP(){var k=iso(lw),l=S.lcus[k],e=l||S.drafts[k],pv=S.lcus[pk(k)];
+var ck=[[!!l,"LCU da semana salvo"],[!!e&&e.q[3].trim()!=="","“O que levar para o plantão” preenchido"],[!pv||!pv.q[2]||!!(e&&e.adj),"Ajuste da semana anterior avaliado"]];
+var h='<div class="card"><h2>Pronto para o plantão?</h2><ul class="ins">'+ck.map(function(c){return'<li class="'+(c[0]?"ok":"wa")+'">'+(c[0]?"✓ ":"○ ")+c[1]+"</li>"}).join("")+"</ul></div>";
+h+='<div class="card"><h2>Resumo para levar</h2><pre>'+esc(brief(k))+'</pre><button class="btn" id="pc">Copiar resumo</button></div>';
+var ks=Object.keys(S.lcus).sort().slice(-4).reverse();
+if(ks.length)h+='<div class="card"><h2>Últimas semanas</h2><div class="scr"><table><tr><th>Semana</th><th>Ativo</th><th>%A</th><th>Comp.</th></tr>'+ks.map(function(x){var q=S.lcus[x];return"<tr><td>"+wn(parse(x))+" · "+fd(parse(x))+"</td><td>"+fm(q.a)+"</td><td>"+pct(q)+"%</td><td>"+q.comp+"%</td></tr>"}).join("")+"</table></div></div>";
+$("plan2").innerHTML=h;$("pc").onclick=function(){copy(brief(k),"pc","Copiar resumo")}}
+
+function rC(){$("cm").value=S.cfg.maxA;$("cg").value=S.cfg.goalC}
+$("cm").onchange=function(){var v=pm($("cm").value);if(v>0){S.cfg.maxA=v;save()}rC()};
+$("cg").onchange=function(){var v=Math.round(+$("cg").value);if(v>=0&&v<=100){S.cfg.goalC=v;save()}rC()};
+function csv(){var r=[["semana","passivo_min","ativo_min","pct_ativo","compreensao","legendas","funcionou","nao_funcionou","ajustar","plantao","ajuste_cumprido"]];
+Object.keys(S.lcus).sort().forEach(function(k){var l=S.lcus[k];r.push([k,mm(l.p),mm(l.a),pct(l),l.comp,l.levels.join("; ")].concat(l.q,[l.adj||""]))});
+return r.map(function(x){return x.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"'}).join(",")}).join("\n")}
+$("bc").onclick=function(){copy(JSON.stringify({lcus:S.lcus,levels:S.levels,cfg:S.cfg}),"bc","Copiar backup")};
+$("bv").onclick=function(){copy(csv(),"bv","Copiar CSV")};
+$("bi").onclick=function(){try{var d=JSON.parse($("bk").value);if(!d||typeof d.lcus!=="object")throw 0;var c=0;
+Object.keys(d.lcus).forEach(function(k){var v=d.lcus[k];if(/^\d{4}-\d{2}-\d{2}$/.test(k)&&v){S.lcus[k]={p:+v.p||0,a:+v.a||0,comp:+v.comp||0,levels:Array.isArray(v.levels)?v.levels.map(String):[],q:Array.isArray(v.q)?v.q.map(String):["","","",""],adj:String(v.adj||"")};c++}});
+if(Array.isArray(d.levels))S.levels=d.levels.map(String);
+if(d.cfg){S.cfg.maxA=+d.cfg.maxA||S.cfg.maxA;S.cfg.goalC=+d.cfg.goalC||S.cfg.goalC}
+save();$("bm").textContent=c+" LCU(s) importado(s) ✓"}catch(e){$("bm").textContent="Backup inválido."}};
+R();
+</script>
+</body>
+</html>
